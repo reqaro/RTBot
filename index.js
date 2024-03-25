@@ -6,8 +6,6 @@ const options = {
     polling: true
 };
 const bot = new TelegramBot(TOKEN, options);
-const time = new Date();
-const currentTime = `${time.getHours()}:${time.getMinutes()}/${time.getDate()}.${time.getMonth()+1}`
 
 const users = [
     {
@@ -192,7 +190,7 @@ const searchResult = (dataBase, searchBsw) => {
 
 bot.on('text', async msg => {
     try {
-        console.log('id:', msg.from.id, ',firstName: ', msg.from.first_name, ',lastName: ', msg.from.last_name, ',Время: ', currentTime, ',text: ' + msg.text,)
+        console.log('id:', msg.from.id, ',firstName: ', msg.from.first_name, ',lastName: ', msg.from.last_name, ',Время: ', `${new Date().getHours()}:${new Date().getMinutes()}/${new Date().getDate()}.${new Date().getMonth()+1}`, ',text: ' + msg.text,)
         //        console.log(usersID)
 
 
