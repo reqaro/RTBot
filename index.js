@@ -7,6 +7,7 @@ const options = {
 };
 const bot = new TelegramBot(TOKEN, options);
 
+/*
 const users = [
     {
         userID: 428762299,
@@ -209,6 +210,7 @@ const users = [
 
 ]
 const usersID = users.map((elem) => elem.userID)
+*/
 
 let result = ''
 const searchResult = (dataBase, searchBsw) => {
@@ -239,8 +241,6 @@ const searchResult = (dataBase, searchBsw) => {
 bot.on('text', async msg => {
     try {
         console.log('id:', msg.from.id, ',firstName: ', msg.from.first_name, ',lastName: ', msg.from.last_name, ',Время: ', `${new Date().getHours()}:${new Date().getMinutes()}/${new Date().getDate()}.${new Date().getMonth()+1}`, ',text: ' + msg.text,)
-        //        console.log(usersID)
-
 
         if(msg.text == '/start') {
             await bot.sendMessage(msg.chat.id, `
@@ -251,10 +251,10 @@ bot.on('text', async msg => {
                 parse_mode: "HTML"
             })}
 
-        if (includes(usersID, msg.from.id)) {
+//        if (includes(usersID, msg.from.id)) {
             await searchResult(db, msg.text.toLowerCase())
             await bot.sendMessage(msg.chat.id, result, {parse_mode: "HTML"}).then(result = '')
-        }
+//        }
         
     } catch (error) {
         console.log(error)
