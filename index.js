@@ -240,14 +240,21 @@ const searchResult = (dataBase, searchBsw) => {
 
 bot.on('text', async msg => {
     try {
-        console.log('id:', msg.from.id, ',firstName: ', msg.from.first_name, ',lastName: ', msg.from.last_name, ',Время: ', `${new Date().getHours()}:${new Date().getMinutes()}/${new Date().getDate()}.${new Date().getMonth()+1}`, ',text: ' + msg.text,)
+        console.log('id:',
+            msg.from.id,
+            ',firstName: ',
+            msg.from.first_name,
+            ',lastName: ',
+            msg.from.last_name,
+            ',Время: ',
+            `${new Date().getHours()}:${new Date().getMinutes()}/${new Date().getDate()}.${new Date().getMonth()+1}`,
+            ',text: ' + msg.text,)
 
-        if(msg.text == '/start') {
+
+        if(msg.text === '/start') {
             await bot.sendMessage(msg.chat.id, `
-Напишите свое ФИО и дождитесь пока вас добавят.
-После добавления в бот вы сможете найти bsw по названию, например введите: <code>bsw1160603</code>
-
-Пока вас не добавят, бот будет молчать.`, {
+Например введите: <code>bsw1160603</code>
+`, {
                 parse_mode: "HTML"
             })}
 
