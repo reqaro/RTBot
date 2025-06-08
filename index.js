@@ -216,7 +216,7 @@ let result = ''
 const searchResult = (dataBase, searchBsw) => {
     dataBase.forEach((obj, index) => {
         obj.bsw.forEach((bswNumber) => {
-            if (bswNumber === searchBsw) {
+            if (bswNumber.trim() === searchBsw) {
                 result =
                     `bsw: ${obj.bsw.join(', ')}
 
